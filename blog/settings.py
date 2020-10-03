@@ -156,14 +156,14 @@ STATIC_URL = '/static/'
 
 #static files from all apps will be collected here when collectstatic command is executed
 #only used in production
-# STATIC_ROOT=os.path.join(BASE_DIR,'static')
+STATIC_ROOT=os.path.join(BASE_DIR,'static')
 
 
 #not necessary during production
 
-STATICFILES_DIRS=[
-    os.path.join(BASE_DIR,"static")
-]
+# STATICFILES_DIRS=[
+#     os.path.join(BASE_DIR,"static")
+# ]
 
 #used to create the STATIC_ROOT folder if it is not created during collectstatic command
 # os.makedirs(STATIC_ROOT, exist_ok=True)
