@@ -96,24 +96,24 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
-#database for production
 # DATABASES = {
 #     'default': {
-#         'ENGINE': os.environ.get('BLOG_DATABASE_ENGINE'),
-#         'NAME': os.environ.get('BLOG_DATABASE_NAME'),
-#         'HOST': os.environ.get('BLOG_DATABASE_HOST'),
-#         'PORT': os.environ.get('BLOG_DATABASE_PORT'),
-#         'USER': os.environ.get('BLOG_DATABASE_USER'),
-#         'PASSWORD': os.environ.get('BLOG_DATABASE_PASSWORD'),
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
+
+#database for production
+DATABASES = {
+    'default': {
+        'ENGINE': os.environ.get('BLOG_DATABASE_ENGINE'),
+        'NAME': os.environ.get('BLOG_DATABASE_NAME'),
+        'HOST': os.environ.get('BLOG_DATABASE_HOST'),
+        'PORT': os.environ.get('BLOG_DATABASE_PORT'),
+        'USER': os.environ.get('BLOG_DATABASE_USER'),
+        'PASSWORD': os.environ.get('BLOG_DATABASE_PASSWORD'),
+    }
+}
 
 
 # Password validation
