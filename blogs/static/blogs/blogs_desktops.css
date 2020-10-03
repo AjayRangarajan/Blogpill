@@ -1,0 +1,15 @@
+.blog-view-title{
+    background-color: antiquewhite;
+    padding: 5px;
+}
+
+.blog-image{
+    float: left;
+    overflow: inherit;
+    margin-right: 10px;
+}
+
+img.blog-img{
+    width: 40em;
+    height: auto;
+}

@@ -1,0 +1,23 @@
+{% extends "authors/authors_layout.html" %}
+
+{% block body %}
+<div class="authors-container">
+{% for author in authors %}
+    <section class="author">
+        {% if author.author_image_link %}
+            <img src="{{ author.author_image_link }}" alt="{{ author.alt_msg }}" class="author-pic">
+        {% else %}
+            <img src="{{ author.profile_pic.url }}" alt="{{ author.alt_msg }}" class="author-pic">
+        {% endif %}
+        <div class="author-detail">
+            <h3>{{ author.name }}</h3>
+            <h4>{{ author.email_id }}</h4>
+            <a href="{% url 'authors:author_profile' author.id %}" class="view-profile-link">
+                <span class="view-profile" >View Profile</span>
+            </a>
+        </div>
+    </section>
+{% empty %}
+{% endfor %}
+</div>
+{% endblock body %}

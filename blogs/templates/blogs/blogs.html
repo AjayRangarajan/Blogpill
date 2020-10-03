@@ -1,0 +1,17 @@
+{% extends "blogs/blogs_layout.html" %}
+
+{% block body %}
+<div class="blog-titles">
+    {% for blog in blogs %}
+        <article class="blog-title">
+            <a href="{% url 'blogs:blog_view' blog.blog_name %}">
+                <h3 class="blog-title">{{ blog.blog_title }}</h3>
+            </a>
+            <span class="author-name">
+                -by <a href="{% url 'authors:author_profile' blog.author.id %}">{{ blog.author.name }}</a>
+            </span>
+        </article>
+    {% empty %}
+    {% endfor %}
+</div>
+{% endblock body %}

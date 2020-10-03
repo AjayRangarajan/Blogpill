@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://www.flaticon.com/svg/static/icons/svg/888/888737.svg" type="image/x-icon">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static 'home/main.css' %}">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="{% static 'authors/authors_mobile.css' %}">
+    <link rel="stylesheet" media="only screen and (min-device-width: 480px)" href="{% static 'authors/authors_mobile.css' %}">
+    <link rel="stylesheet" media="only screen and (min-device-width: 1025px)" href="{% static 'authors/authors_desktops.css' %}">
+</head>
+<body>
+    <header id="header">
+        <h1>Blogpill</h1>
+        <nav class="nav-links" >
+            <a href="{% url 'home:home' %}">
+                <button id="home-page">Home</button>
+            </a>
+            <a href="{% url 'blogs:blogs' %}">
+                <button id="blogs-page" >Blogs</button>
+            </a>
+            <a href="#">
+                <button id="authors-page" class="current-page">Authors</button>
+            </a>
+        </nav>
+    </header>
+    {% block head %}
+    {% endblock head %}
+
+    {% block body %}
+    {% endblock body %}
+
+    {% block foot %}
+    {% endblock foot %}
+    <footer id="authors-footer">
+        <span class="copyrights">copyrights &copy; 2020 Blogpill</span>
+    </footer>
+</body>
+</html>

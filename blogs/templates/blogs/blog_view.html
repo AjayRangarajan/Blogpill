@@ -1,0 +1,20 @@
+{% extends "blogs/blogs_layout.html" %}
+
+{% block body %}
+    <div class="blog-view-title">
+        <h2>{{ blog.blog_title }}</h2>
+        <h4>by -{{ blog.author }} on {{ blog.published_date.date }}</h4>
+    </div>
+    <div class="blog-image">
+    <br>
+    {% if blog.blog_image_link %}
+        <img src="{{ blog.blog_img_link }}" alt="{{ blog.alt_msg }}" class="blog-img">
+    {% else %}
+        <img  src="{{ blog.blog_image.url }}" alt="{{ blog.alt_msg }}" class="blog-img" >
+    {% endif %}
+    <br>
+    </div>
+    <div class="blog-content">
+        {{ blog.blog_content | safe }}
+    </div>
+{% endblock body %}

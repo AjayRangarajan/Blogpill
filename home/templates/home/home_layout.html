@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="shortcut icon" href="https://www.flaticon.com/svg/static/icons/svg/888/888737.svg" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'home/main.css' %}">
+    <link rel="stylesheet" href="{% static 'home/home.css' %}">
+</head>
+<body>
+    <header id="header">
+        <h1>Blogpill</h1>
+        <nav class="nav-links" >
+            <a href="#">
+                <button id="home-page" class="current-page" >Home</button>
+            </a>
+            <a href="{% url 'blogs:blogs' %}">
+                <button id="blogs-page">Blogs</button>
+            </a>
+            <a href="{% url 'authors:authors' %}">
+                <button id="authors-page">Authors</button>
+            </a>
+        </nav>
+    </header>
+    {% block head %}
+    {% endblock head %}
+
+    {% block body %}
+    {% endblock body %}
+
+    {% block foot %}
+    {% endblock foot %}
+    <footer id="home-footer">
+        <span class="copyrights">copyrights &copy; 2020 Blogpill</span>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,18 @@
+.blog-view-title{
+    background-color: antiquewhite;
+    padding: 5px;
+}
+
+/* only for blog-view */
+
+.blog-image{
+    float: left;
+    overflow: inherit;
+    margin-right: 10px;
+    padding: 5px;
+}
+
+img.blog-img{
+    width: 100%;
+    height: auto;
+}
