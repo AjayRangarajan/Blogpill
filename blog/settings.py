@@ -31,16 +31,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = "fjdlkfjsoijhjiru2389r3tnmnn8430"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = (os.environ.get('BLOG_DEBUG_VALUE')=="True")
+DEBUG = (os.environ.get('BLOG_DEBUG_VALUE')=="True")
 
 #only for development
-DEBUG= True
+# DEBUG= True
 # DEBUG = False
 
 ALLOWED_HOSTS = ['0.0.0.0','localhost','127.0.0.1']
 
 #only for production
-# ALLOWED_HOSTS.append(os.environ.get('HOST_NAME'))
+ALLOWED_HOSTS.append(os.environ.get('HOST_NAME'))
 
 
 # Application definition
