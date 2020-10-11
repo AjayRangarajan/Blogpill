@@ -7,8 +7,9 @@
     <link rel="shortcut icon" href="https://www.flaticon.com/svg/static/icons/svg/888/888737.svg" type="image/x-icon">
     <title>{{ title }}</title>
     <link rel="stylesheet" href="{% static 'home/main.css' %}">
+    <link rel="stylesheet" href="{% static 'blogs/blogs.css' %}">
     <link rel="stylesheet" media="only screen and (max-device-width: 780px)" href="{% static 'blogs/blogs_mobile.css' %}">
-    <link rel="stylesheet" media="only screen and (min-device-width: 781px)" href="{% static 'blogs/blogs_desktops.css' %}">
+    <link rel="stylesheet" media="only screen and (min-device-width: 781px)" href="{% static 'blogs/blogs_desktop.css' %}">
 </head>
 <body>
     <header id="header">
@@ -19,6 +20,9 @@
             </a>
             <a href="#">
                 <button id="blogs-page" class="current-page">Blogs</button>
+            </a>
+            <a href="{% url 'tags:tags' %}">
+                <button id="tags-page">Tags</button>
             </a>
             <a href="{% url 'authors:authors' %}">
                 <button id="authors-page">Authors</button>

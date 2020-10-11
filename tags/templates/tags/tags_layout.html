@@ -7,9 +7,9 @@
     <link rel="shortcut icon" href="https://www.flaticon.com/svg/static/icons/svg/888/888737.svg" type="image/x-icon">
     <title>{{ title }}</title>
     <link rel="stylesheet" href="{% static 'home/main.css' %}">
-    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="{% static 'authors/authors_mobile.css' %}">
-    <link rel="stylesheet" media="only screen and (min-device-width: 481px)" href="{% static 'authors/authors_tablet.css' %}">
-    <link rel="stylesheet" media="only screen and (min-device-width: 1025px)" href="{% static 'authors/authors_desktop.css' %}">
+    <link rel="stylesheet" href="{% static 'tags/tags.css' %}">
+    <link rel="stylesheet" media="only screen and (max-device-width: 780px)" href="{% static 'tags/tags_mobile.css' %}">
+    <link rel="stylesheet" media="only screen and (min-device-width: 781px)" href="{% static 'tags/tags_desktop.css' %}">
 </head>
 <body>
     <header id="header">
@@ -19,13 +19,13 @@
                 <button id="home-page">Home</button>
             </a>
             <a href="{% url 'blogs:blogs' %}">
-                <button id="blogs-page" >Blogs</button>
-            </a>
-            <a href="{% url 'tags:tags' %}">
-                <button id="tags-page">Tags</button>
+                <button id="blogs-page">Blogs</button>
             </a>
             <a href="#">
-                <button id="authors-page" class="current-page">Authors</button>
+                <button id="tags-page" class="current-page">Tags</button>
+            </a>
+            <a href="{% url 'authors:authors' %}">
+                <button id="authors-page">Authors</button>
             </a>
         </nav>
     </header>
@@ -37,7 +37,7 @@
 
     {% block foot %}
     {% endblock foot %}
-    <footer id="authors-footer">
+    <footer id="blogs-footer">
         <span class="copyrights">copyrights &copy; 2020 Blogpill</span>
     </footer>
 </body>

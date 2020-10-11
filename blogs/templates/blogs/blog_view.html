@@ -2,19 +2,27 @@
 
 {% block body %}
     <div class="blog-view-title">
-        <h2>{{ blog.blog_title }}</h2>
-        <h4>by -{{ blog.author }} on {{ blog.published_date.date }}</h4>
+        <h2>{{ blog.title }}</h2>
+        <h4>by - <a href="{% url 'authors:author_profile' blog.author.id %}">{{ blog.author }}</a> on {{ blog.published_date.date }}</h4>
     </div>
     <div class="blog-image">
     <br>
-    {% if blog.blog_image_link %}
-        <img src="{{ blog.blog_img_link }}" alt="{{ blog.alt_msg }}" class="blog-img">
+    {% if blog.image_link %}
+        <img src="{{ blog.image_link }}" alt="{{ blog.alt_msg }}" class="blog-img">
     {% else %}
-        <img  src="{{ blog.blog_image.url }}" alt="{{ blog.alt_msg }}" class="blog-img" >
+        <img  src="{{ blog.image.url }}" alt="{{ blog.alt_msg }}" class="blog-img" >
     {% endif %}
     <br>
     </div>
     <div class="blog-content">
-        {{ blog.blog_content | safe }}
+        {{ blog.content | safe }}
     </div>
+    <h4 class="title-tags">Tags:</h4>
+    {% for tag in blog.tags.all %}
+        <p class="tag-name">
+            <a href="{% url 'tags:tag_view' tag.name %}">{{ tag.name }}</a>
+        </p>
+    {% empty %}
+        <p class="no-tags">No tags available for this blog!!!</p>
+    {% endfor %}
 {% endblock body %}

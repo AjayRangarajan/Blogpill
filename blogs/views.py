@@ -15,10 +15,10 @@ def blogs(request):
 
 def blog_view(request,blog_name):
 
-    blog=Blogs.objects.get(blog_name=blog_name)
+    blog=Blogs.objects.get(name=blog_name)
 
     context={
-        'title':blog.blog_title.capitalize(),
+        'title':blog.title.capitalize(),
         'blog':blog,
     }
     return render(request,"blogs/blog_view.html",context)

@@ -4,11 +4,11 @@
 <div class="blog-titles">
     {% for blog in blogs %}
         <article class="blog-title">
-            <a href="{% url 'blogs:blog_view' blog.blog_name %}">
-                <h3 class="blog-title">{{ blog.blog_title }}</h3>
+            <a href="{% url 'blogs:blog_view' blog.name %}">
+                <h3 class="blog-title">{{ blog.title }}</h3>
             </a>
             <span class="author-name">
-                -by <a href="{% url 'authors:author_profile' blog.author.id %}">{{ blog.author.name }}</a>
+                -by <a href="{% url 'authors:author_profile' blog.author.id %}">{{ blog.author.name }}</a> on {{ blog.published_date.date }}
             </span>
         </article>
     {% empty %}

@@ -4,7 +4,7 @@
 <div class="author-profile">
 
     {% if author.author_image_link %}
-        <img src="{{ author.author_image_link }}" alt="{{ author.alt_msg }}" class="author-profile-img">
+        <img src="{{ author.profile_image_link }}" alt="{{ author.alt_msg }}" class="author-profile-img">
     {% else %}
         <img src="{{ author.profile_pic.url }}" alt="{{ author.alt_msg }}" class="author-profile-img">
     {% endif %}
@@ -15,9 +15,9 @@
 </div>
 <h3>Blogs</h3>
 {% for blog in blogs %}
-<a href="{% url 'blogs:blog_view' blog.blog_name %}">
+<a href="{% url 'blogs:blog_view' blog.name %}">
     <article class="blogs-title">
-        <h2>{{ blog.blog_title }}</h2>
+        <h2>{{ blog.title }}</h2>
         <small>{{ blog.published_date }}</small>
     </article>
 </a>

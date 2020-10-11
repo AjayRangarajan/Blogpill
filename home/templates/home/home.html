@@ -5,8 +5,8 @@
 <div class="featured-blogs">
     {% for blog in featured_blogs %}
             <article class="featured-blog-article">
-                <a href="{% url 'blogs:blog_view' blog.blog_name %}" class="featured-blog-link" >
-                    <h3 class="featured-blog-title">{{ blog.blog_title }}</h3>
+                <a href="{% url 'blogs:blog_view' blog.name %}" class="featured-blog-link" >
+                    <h3 class="featured-blog-title">{{ blog.title }}</h3>
                 </a>
                 <span class="author-name">
                     -by <a href="{% url 'authors:author_profile' blog.author.id %}">{{ blog.author.name }}</a>

@@ -4,8 +4,8 @@
 <div class="authors-container">
 {% for author in authors %}
     <section class="author">
-        {% if author.author_image_link %}
-            <img src="{{ author.author_image_link }}" alt="{{ author.alt_msg }}" class="author-pic">
+        {% if author.image_link %}
+            <img src="{{ author.image_link }}" alt="{{ author.alt_msg }}" class="author-pic">
         {% else %}
             <img src="{{ author.profile_pic.url }}" alt="{{ author.alt_msg }}" class="author-pic">
         {% endif %}

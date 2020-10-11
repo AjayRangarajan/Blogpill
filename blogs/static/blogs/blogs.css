@@ -1,0 +1,24 @@
+/* tags */
+h4.title-tags{
+    margin-bottom: 0px;
+}
+
+p.tag-name{
+    display: inline-block;
+    background-color: black;
+    width: 100px;
+    padding: 3px;
+    margin: 7px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+p.tag-name>a{
+    color: #66fcf1;
+    font-size: 14px;
+}
+
+/* no tags */
+p.no-tags{
+    font-size: 17px;
+}

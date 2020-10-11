@@ -1,0 +1,13 @@
+{% extends "tags/tags_layout.html" %}
+
+{% block body %}
+
+{% for tag in tags %}
+    <h2 class="list-tag-name">
+        <a href="{% url 'tags:tag_view' tag.name %}">{{ tag.name }}</a>
+    </h2>
+{% empty %}
+    <h4>No Tags available!!!</h4>
+{% endfor %}
+
+{% endblock body %}
