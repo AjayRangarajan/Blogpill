@@ -13,9 +13,9 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 import os
 from pathlib import Path
 
-# import cloudinary
-# import cloudinary.uploader
-# import cloudinary.api
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,22 +25,22 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = os.environ.get("BLOG_SECRET_KEY")
+SECRET_KEY = os.environ.get("BLOG_SECRET_KEY")
 
 #only for development
-SECRET_KEY = "fjdlkfjsoijhjiru2389r3tnmnn8430"
+# SECRET_KEY = "fjdlkfjsoijhjiru2389r3tnmnn8430"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = (os.environ.get('BLOG_DEBUG_VALUE')=="True")
+DEBUG = (os.environ.get('BLOG_DEBUG_VALUE')=="True")
 
 #only for development
-DEBUG= True
+# DEBUG= True
 # DEBUG = False
 
 ALLOWED_HOSTS = ['0.0.0.0','localhost','127.0.0.1']
 
 #only for production
-# ALLOWED_HOSTS.append(os.environ.get('HOST_NAME'))
+ALLOWED_HOSTS.append(os.environ.get('HOST_NAME'))
 
 
 # Application definition
@@ -97,24 +97,24 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
-#database for production
 # DATABASES = {
 #     'default': {
-#         'ENGINE': os.environ.get('BLOG_DATABASE_ENGINE'),
-#         'NAME': os.environ.get('BLOG_DATABASE_NAME'),
-#         'HOST': os.environ.get('BLOG_DATABASE_HOST'),
-#         'PORT': os.environ.get('BLOG_DATABASE_PORT'),
-#         'USER': os.environ.get('BLOG_DATABASE_USER'),
-#         'PASSWORD': os.environ.get('BLOG_DATABASE_PASSWORD'),
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
+
+#database for production
+DATABASES = {
+    'default': {
+        'ENGINE': os.environ.get('BLOG_DATABASE_ENGINE'),
+        'NAME': os.environ.get('BLOG_DATABASE_NAME'),
+        'HOST': os.environ.get('BLOG_DATABASE_HOST'),
+        'PORT': os.environ.get('BLOG_DATABASE_PORT'),
+        'USER': os.environ.get('BLOG_DATABASE_USER'),
+        'PASSWORD': os.environ.get('BLOG_DATABASE_PASSWORD'),
+    }
+}
 
 
 # Password validation
@@ -157,14 +157,14 @@ STATIC_URL = '/static/'
 
 #static files from all apps will be collected here when collectstatic command is executed
 #only used in production
-# STATIC_ROOT=os.path.join(BASE_DIR,'static')
+STATIC_ROOT=os.path.join(BASE_DIR,'static')
 
 
 #not necessary during production
 
-STATICFILES_DIRS=[
-    os.path.join(BASE_DIR,"static")
-]
+# STATICFILES_DIRS=[
+#     os.path.join(BASE_DIR,"static")
+# ]
 
 #used to create the STATIC_ROOT folder if it is not created during collectstatic command
 # os.makedirs(STATIC_ROOT, exist_ok=True)
@@ -176,8 +176,8 @@ MEDIA_URL='/media/'
 
 #cloudinary configurations details for storing images and other media
 
-# cloudinary.config( 
-#   cloud_name = os.environ.get('BLOG_CLOUD_NAME'), 
-#   api_key = os.environ.get('BLOG_API_KEY'), 
-#   api_secret = os.environ.get('BLOG_API_SECRET') 
-# )
+cloudinary.config( 
+  cloud_name = os.environ.get('BLOG_CLOUD_NAME'), 
+  api_key = os.environ.get('BLOG_API_KEY'), 
+  api_secret = os.environ.get('BLOG_API_SECRET') 
+)
