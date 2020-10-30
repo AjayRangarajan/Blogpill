@@ -9,7 +9,7 @@
     <br>
     {% if blog.image_link %}
         <img src="{{ blog.image_link }}" alt="{{ blog.alt_msg }}" class="blog-img">
-    {% else %}
+    {% elif blog.image.url %}
         <img  src="{{ blog.image.url }}" alt="{{ blog.alt_msg }}" class="blog-img" >
     {% endif %}
     <br>

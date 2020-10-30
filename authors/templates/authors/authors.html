@@ -10,8 +10,8 @@
             <img src="{{ author.profile_pic.url }}" alt="{{ author.alt_msg }}" class="author-pic">
         {% endif %}
         <div class="author-detail">
-            <h3>{{ author.name }}</h3>
-            <h4>{{ author.email_id }}</h4>
+            <h3>{{ author.default.username }}</h3>
+            <h4>{{ author.default.email }}</h4>
             <a href="{% url 'authors:author_profile' author.id %}" class="view-profile-link">
                 <span class="view-profile" >View Profile</span>
             </a>

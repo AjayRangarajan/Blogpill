@@ -9,8 +9,8 @@
         <img src="{{ author.profile_pic.url }}" alt="{{ author.alt_msg }}" class="author-profile-img">
     {% endif %}
     <br>
-    <h2 class="author-name">{{ author.name }}</h2>
-    <h3 class="author-email">{{ author.email_id }}</h3>
+    <h2 class="author-name">{{ author.default.username }}</h2>
+    <h3 class="author-email">{{ author.default.email }}</h3>
     <small>Number of Blogs:{{ no_of_blogs }}</small>
 </div>
 <h3>Blogs</h3>

@@ -5,5 +5,6 @@ app_name="blogs"
 
 urlpatterns=[
     path("",blogs_views.blogs,name="blogs"),
+    path("create_blog/",blogs_views.create_blog,name="create_blog"),
     path("<str:blog_name>/",blogs_views.blog_view,name="blog_view"),
 ]

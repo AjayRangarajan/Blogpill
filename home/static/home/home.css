@@ -1,5 +1,26 @@
 /* style for home page  */
 
+#header h1{
+    display: inline-block;
+}
+
+#header a.login-link button.login-button{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 10px;
+    background-color:#66fcf1;
+    color: black;
+    border-radius: 12px;
+}
+
+#header a.logout-link button.logout-button{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 10px;
+    background-color:black;
+    color: #66fcf1;
+    border-color: #66fcf1;
+    border-radius: 12px;
+}
+
 .featured-blog-article{
     border-radius: 7px;
     padding: 2px;
