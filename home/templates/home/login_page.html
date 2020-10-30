@@ -1,0 +1,14 @@
+{% extends "home/home_layout.html" %}
+
+{% block body %}
+<form action="{% url 'home:login_page' %}" method="POST" spellcheck="false">
+    {% csrf_token %}
+    <label for="login-name" id="login-name-label">username:</label>
+    <input type="text" name="login-name" id="login-name">
+    <br>
+    <label for="login-password" id="login-password-label">password:</label>
+    <input type="password" name="login-password" id="login-password">
+    <br>
+    <button type="submit" id="login-button">Login</button>
+</form>
+{% endblock body %}
