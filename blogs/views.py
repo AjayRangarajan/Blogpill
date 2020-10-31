@@ -21,7 +21,8 @@ def blogs(request):
 
 
 @login_required(login_url='home:login_page')
-@allowed_users(allowed_groups=['Authors'])
+# @allowed_users(allowed_groups=['Authors'])
+@authors_only
 def create_blog(request):
     if request.method=="POST":
         blog_creation_form=BlogCreationForm(request.POST,request.FILES)
@@ -42,9 +43,9 @@ def create_blog(request):
 
 
 
-def blog_view(request,blog_name):
+def blog_view(request,blog_id):
 
-    blog=Blogs.objects.get(name=blog_name)
+    blog=Blogs.objects.get(pk=blog_id)
 
     context={
         'title':blog.title.capitalize(),

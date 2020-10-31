@@ -5,9 +5,8 @@ from cloudinary.models import CloudinaryField
 
 class Blogs(models.Model):
 
-    name=models.CharField(max_length=100)
     title=models.CharField(max_length=300)
-    content=models.TextField(max_length=5000)
+    content=models.TextField()
     published_date=models.DateTimeField(auto_now=True)
     author=models.ForeignKey("authors.Authors",blank=True,null=True,on_delete=models.CASCADE,related_name="blogs")
     image=models.ImageField(upload_to="blog_images",blank=True,null=True)

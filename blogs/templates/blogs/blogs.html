@@ -2,9 +2,9 @@
 
 {% block body %}
 <div class="blog-titles">
-    {% for blog in blogs %}
+    {% for blog in blogs reversed %}
         <article class="blog-title">
-            <a href="{% url 'blogs:blog_view' blog.name %}">
+            <a href="{% url 'blogs:blog_view' blog.id %}">
                 <h3 class="blog-title">{{ blog.title }}</h3>
             </a>
             <span class="author-name">

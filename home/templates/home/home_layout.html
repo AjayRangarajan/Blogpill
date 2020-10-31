@@ -21,6 +21,11 @@
                 <button class="login-button">Login</button>
             </a>
         {% endif %}
+        {% if is_author %}
+            <a href="{% url 'blogs:create_blog' %}" id="create-blog-page">
+                <button class="create-blog-button">Create Blog</button>
+            </a>
+        {% endif %}
         <nav class="nav-links" >
             <a href="#">
                 <button id="home-page" class="current-page" >Home</button>

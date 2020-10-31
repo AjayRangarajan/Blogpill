@@ -9,6 +9,15 @@ def home(request):
 
     all_blogs=Blogs.objects.all()
     featured_blogs=[]
+
+    groups=None
+    is_author=False
+    if request.user.is_authenticated:
+        if request.user.groups.exists():
+            groups=request.user.groups.all()
+            for group in groups:
+                if group.name == 'Authors':
+                    is_author=True
     
     for blog in all_blogs:
         if blog.was_published_recently():
@@ -17,6 +26,7 @@ def home(request):
     context={
         'title':'HOME',
         'featured_blogs':featured_blogs,
+        'is_author':is_author,
     }
     return render(request,"home/home.html",context)
 
@@ -27,7 +37,7 @@ def login_view(request):
         user=authenticate(username=login_user,password=login_password)
         if user != None:
             login(request,user)
-            return redirect('blogs:create_blog')
+            return redirect('home:home')
         else:
             return HttpResponse("Invalid credentials!!")
     

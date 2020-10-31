@@ -9,10 +9,10 @@
 <h2>Blogs</h2>
 {% for blog in blogs %}
     <h3>
-        <a href="{% url 'blogs:blog_view' blog.name %}">{{blog.title}}</a>
+        <a href="{% url 'blogs:blog_view' blog.id %}">{{blog.title}}</a>
     </h3>
     <span>
-        by <a href="{% url 'authors:author_profile' blog.author.id %}">{{blog.author.name}}</a> on {{ blog.published_date.date }}
+        by <a href="{% url 'authors:author_profile' blog.id %}">{{blog.author.name}}</a> on {{ blog.published_date.date }}
     </span>
     <br>
 {% empty %}

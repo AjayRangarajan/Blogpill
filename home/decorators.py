@@ -37,4 +37,4 @@ def authors_only(view_func):
                 return HttpResponse("You have no permissions to view this page!")
         else:
             return HttpResponse("You have no permissions to view this page")
-    wrapper_func
+    return wrapper_func

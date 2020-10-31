@@ -16,6 +16,42 @@ header#header{
     border-bottom-color: #66fcf1;
 }
 
+#header h1{
+    display: inline-block;
+}
+
+/* style for login button */
+
+#header a.login-link button.login-button{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 10px;
+    background-color:#66fcf1;
+    color: black;
+    border-radius: 12px;
+}
+
+/* style for logout button */
+
+#header a.logout-link button.logout-button{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 10px;
+    background-color:black;
+    color: #66fcf1;
+    border-color: #66fcf1;
+    border-radius: 12px;
+}
+
+/* style for create blog button */
+
+a#create-blog-page button.create-blog-button{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 10px;
+    background-color:black;
+    color: #66fcf1;
+    border-color: #66fcf1;
+    border-radius: 12px;
+}
+
 header#header>nav.nav-links>a>button.current-page{
     border: none;
 }

@@ -15,7 +15,7 @@
 </div>
 <h3>Blogs</h3>
 {% for blog in blogs %}
-<a href="{% url 'blogs:blog_view' blog.name %}">
+<a href="{% url 'blogs:blog_view' blog.id %}">
     <article class="blogs-title">
         <h2>{{ blog.title }}</h2>
         <small>{{ blog.published_date }}</small>
