@@ -23,16 +23,21 @@ header#header{
 /* style for login button */
 
 #header a.login-link button.login-button{
+    position: absolute;
+    right: 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 10px;
-    background-color:#66fcf1;
-    color: black;
+    background-color:black;
+    color: #66fcf1;
     border-radius: 12px;
+    border-color: #66fcf1;
 }
 
 /* style for logout button */
 
 #header a.logout-link button.logout-button{
+    position: absolute;
+    right: 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 10px;
     background-color:black;
@@ -44,6 +49,8 @@ header#header{
 /* style for create blog button */
 
 a#create-blog-page button.create-blog-button{
+    position: absolute;
+    right: 80px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 10px;
     background-color:black;
