@@ -1,5 +1,13 @@
 {% extends "home/home_layout.html" %}
 
+{% block head %}
+    {% if messages %}
+        {% for message in messages %}
+            <p class="messages message-{{ message.tags }}" >{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+{% endblock head %}
+
 {% block body %}
 <h2 id="featured-blogs-title">Featured Blogs</h2>
 <div class="featured-blogs">

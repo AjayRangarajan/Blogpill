@@ -75,6 +75,33 @@ nav.nav-links>a>button{
     color: #66fcf1;
 }
 
+/* style for messages */
+
+.messages{
+    display: inline-block;
+    width: auto;
+    height: auto;
+    border-radius: 12px;
+    padding: 5px;
+}
+
+.message-success{
+    background-color:blue;
+    color:white;
+}
+
+.message-info{
+    background-color: black;
+    color: #66fcf1;
+}
+
+.message-error{
+    background-color: red;
+    color: whitesmoke;
+}
+
+/* style for the blog title */
+
 #featured-blogs-title{
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin-bottom: 5px;

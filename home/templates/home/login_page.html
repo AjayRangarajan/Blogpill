@@ -9,6 +9,12 @@
     <label for="login-password" id="login-password-label">password:</label>
     <input type="password" name="login-password" id="login-password">
     <br>
+    {% if messages %}
+        {% for message in messages %}
+            <p class="messages message-{{ message.tags }}">{{ message }}</p>
+        {% endfor %}
+        <br>
+    {% endif %}
     <button type="submit" id="login-button">Login</button>
 </form>
 {% endblock body %}

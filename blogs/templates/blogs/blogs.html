@@ -1,5 +1,13 @@
 {% extends "blogs/blogs_layout.html" %}
 
+{% block head %}
+    {% if messages %}
+        {% for message in messages %}
+            <p class="messages message-{{ message.tags }}">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+{% endblock head %}
+
 {% block body %}
 <div class="blog-titles">
     {% for blog in blogs reversed %}

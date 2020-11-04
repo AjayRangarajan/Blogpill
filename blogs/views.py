@@ -31,9 +31,11 @@ def create_blog(request):
             author=Authors.objects.get(default=request.user)
             new_blog.author=author
             new_blog.save()
+            messages.success(request,'successfully created the blog!')
             return redirect('home:home')
         else:
-            return HttpResponse("something went wrong!")
+            messages.error(request,'please fill the form properly!')
+            return redirect('blogs:create_blog')
     blog_creation_form=BlogCreationForm()
     context={
         'title':"Blog Editor",

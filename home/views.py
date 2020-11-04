@@ -37,9 +37,11 @@ def login_view(request):
         user=authenticate(username=login_user,password=login_password)
         if user != None:
             login(request,user)
+            messages.success(request,f'successfully logged in as {request.user.username} !')
             return redirect('home:home')
         else:
-            return HttpResponse("Invalid credentials!!")
+            messages.error(request,f'invalid credentials!!!')
+            return redirect('home:login_page')
     
     context={
         'title':"LOGIN PAGE",
@@ -49,4 +51,5 @@ def login_view(request):
 @login_required(login_url='home:login_page')
 def logout_view(request):
     logout(request)
+    messages.info(request,'you had been logged out!!')
     return redirect('home:home')

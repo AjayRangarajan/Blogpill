@@ -4,6 +4,12 @@
 <form action="{% url 'blogs:create_blog' %}" method="POST" id="blog-creation-form" enctype="multipart/form-data">
     {% csrf_token %}
     {{ blog_creation_form.as_p }}
+    <br>
+    {% if messages %}
+        {% for message in messages %}
+            <p class="messages message-{{ message.tags }}">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
     <button type="submit" id="create-blog-button">Create Blog</button>
 </form>
 {% endblock body %}
