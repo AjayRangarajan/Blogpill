@@ -10,3 +10,37 @@
     margin: 5px auto;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+/* style for login page */
+
+    /* style for placeholder */
+#login-name::placeholder,#login-password::placeholder{
+    color: #66fcf1;
+    opacity: 0.7;
+    padding: 2px;
+}
+
+#login-form{
+    text-align: center;
+    margin: 20px auto;
+    padding: 20px 20px;
+}
+
+#login-name, #login-password{
+    margin: 10px auto;
+    padding: 15px;
+    border-radius: 14px;
+    border-color: #66fcf1;
+    background-color: black;
+    color: #66fcf1;
+    
+}
+
+#login-button{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 10px;
+    background-color:black;
+    color: #66fcf1;
+    border-radius: 12px;
+    border-color: #66fcf1;
+}
