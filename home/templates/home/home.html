@@ -9,15 +9,15 @@
 {% endblock head %}
 
 {% block body %}
-<h2 id="featured-blogs-title">Featured Blogs</h2>
+<h2 id="featured-blogs-heading">Featured Blogs</h2>
 <div class="featured-blogs">
     {% for blog in featured_blogs reversed %}
-            <article class="featured-blog-article">
+            <article class="featured-blogs-article">
                 <a href="{% url 'blogs:blog_view' blog.id %}" class="featured-blog-link" >
-                    <h3 class="featured-blog-title">{{ blog.title }}</h3>
+                    <h2 class="blog-title">{{ blog.title }}</h2>
                 </a>
                 <span class="author-name">
-                    -by <a href="{% url 'authors:author_profile' blog.author.id %}">{{ blog.author.name }}</a>
+                    -by <a href="{% url 'authors:author_profile' blog.author.id %}">{{ blog.author.default.username }}</a>
                 </span>
                 <span class="published-date" >on {{ blog.published_date.date }}</span>
             </article>

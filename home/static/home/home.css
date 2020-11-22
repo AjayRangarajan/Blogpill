@@ -1,14 +1,24 @@
 /* style for home page  */
 
-/* header#header{
-    position: relative;
-} */
+/* style for featured blog title */
 
-.featured-blog-article{
+#featured-blogs-heading{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-bottom: 5px;
+}
+
+/* style for featured blogs */
+
+.featured-blogs{
+    min-height: 60vh;
+}
+
+/* style for featured blogs */
+
+.featured-blogs-article{
     border-radius: 7px;
     padding: 2px;
     margin: 5px auto;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 /* style for login page */
@@ -24,6 +34,7 @@
     text-align: center;
     margin: 20px auto;
     padding: 20px 20px;
+    min-height: 60vh;
 }
 
 #login-name, #login-password{

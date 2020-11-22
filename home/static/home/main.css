@@ -12,8 +12,7 @@ header#header{
     color: #66fcf1;
     text-align: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    border-bottom: solid;
-    border-bottom-color: #66fcf1;
+    border-bottom: solid #66fcf1;
 }
 
 #header h1{
@@ -81,8 +80,8 @@ nav.nav-links>a>button{
     display: inline-block;
     width: auto;
     height: auto;
-    border-radius: 12px;
-    padding: 5px;
+    border-radius: 7px;
+    padding: 5px 10px;
 }
 
 .message-success{
@@ -102,17 +101,16 @@ nav.nav-links>a>button{
 
 /* style for the blog title */
 
-#featured-blogs-title{
+.blog-title{
     font-family: Georgia, 'Times New Roman', Times, serif;
-    margin-bottom: 5px;
 }
 
-a:link{
+header a:link{
     text-decoration: none;
 }
 
 a{
-    color:black;
+    color: inherit;
 }
 
 footer{
@@ -121,4 +119,5 @@ footer{
     text-align: center;
     margin: 10px -10px -10px -10px;
     padding-top: 50px;
+    border-top: solid #66fcf1;
 }

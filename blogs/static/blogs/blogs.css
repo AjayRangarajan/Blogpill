@@ -1,3 +1,22 @@
+.blog-titles{
+    min-height: 60vh;
+}
+
+#new-blogs-heading{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-bottom: 5px;
+}
+
+.blog-title{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.blog-view-title{
+    background-color: antiquewhite;
+    padding: 5px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
 /* tags */
 h4.title-tags{
     margin-bottom: 0px;
@@ -25,6 +44,71 @@ p.no-tags{
 
 /* style for blog editor */
 
-/* form#blog-creation-form{
+    /* style for blog elements */
 
-} */
+form#blog-creation-form{
+    text-align: center;
+}
+
+form#blog-creation-form div.form-elements>p>*{
+    background-color: black;
+    color: #66fcf1;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+form#blog-creation-form .input-labels{
+    font-size: small;
+    background-color: black;
+    color: #66fcf1;
+}
+
+/* blog title input */
+
+form#blog-creation-form input[id="blog-title"]{
+    height: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: yellow;
+}
+
+form#blog-creation-form input[id="blog-title"]::placeholder{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* blog content input */
+
+form#blog-creation-form textarea[id="blog-content"]{
+    height: 300px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* blog add image */
+
+form#blog-creation-form input[type='file']{
+    background-color: black;
+    color: #66fcf1;
+}
+
+#or{
+    border-radius: 50%;
+    font-size: small;
+    padding: 5px;
+}
+
+.blog-editor-hints{
+    border-radius: 5px;
+    font-size: small;
+    padding: 5px;
+}
+
+.blog-editor-hints,#or{
+    background-color:black;
+    color: yellow;
+}
+
+#publish-blog-button{
+    background-color: black;
+    color: #66fcf1;
+    padding: 10px;
+    border-radius: 7px;
+}

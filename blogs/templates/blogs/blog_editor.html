@@ -1,15 +1,49 @@
 {% extends "blogs/blogs_layout.html" %}
 
 {% block body %}
-<form action="{% url 'blogs:create_blog' %}" method="POST" id="blog-creation-form" enctype="multipart/form-data">
+<form action="{% url 'blogs:create_blog' %}" method="POST" id="blog-creation-form" enctype="multipart/form-data" spellcheck="false" autocomplete="off">
     {% csrf_token %}
-    {{ blog_creation_form.as_p }}
+    <div class="form-elements">
+        <p class="blog-title-input">
+            <span class="input-labels blog-title-label">{{ blog_creation_form.title.label }}:</span>
+            {{ blog_creation_form.title }}
+        </p>
+    </div>
+    <div class="form-elements">
+        <p class="blog-content-input">
+            <span class="input-labels blog-content-label">{{ blog_creation_form.content.label }}:</span>
+            {{ blog_creation_form.content }}
+        </p>
+        <span class="blog-editor-hints" id="editor-hint-content">Add HTML tags for markups</span>
+    </div>
+    <div class="form-elements">
+        <p class="choose-image-button">
+            <span class="input-labels choose-image-label">{{ blog_creation_form.image.label }}:</span>
+            {{ blog_creation_form.image }}
+        </p>
+        <span id="or">Or</span>
+        <p class="add-image-link">
+            <span class="input-labels add-image-link-label">{{ blog_creation_form.image_link.label }}:</span>
+            {{ blog_creation_form.image_link }}
+        </p>
+        <p class="alt-msg">
+            <span class="input-labels alt-msg-label">{{ blog_creation_form.alt_msg.label }}:</span>
+            {{ blog_creation_form.alt_msg }}
+        </p>
+    </div>
+    <div class="form-elements form-tags">
+        <p class="add-tags">
+            <span class="input-labels add-tags-label">{{ blog_creation_form.tags.label }}:</span>
+            {{ blog_creation_form.tags }}
+        </p>
+        <span class="blog-editor-hints" id="blog-editor-hint-tags">Ctrl+click to select multiple tags</span>
+    </div>
     <br>
     {% if messages %}
         {% for message in messages %}
             <p class="messages message-{{ message.tags }}">{{ message }}</p>
         {% endfor %}
     {% endif %}
-    <button type="submit" id="create-blog-button">Create Blog</button>
+    <button type="submit" id="publish-blog-button">Create Blog</button>
 </form>
 {% endblock body %}

@@ -2,12 +2,16 @@
 
 {% block body %}
 
-{% for tag in tags %}
-    <h2 class="list-tag-name">
-        <a href="{% url 'tags:tag_view' tag.name %}">{{ tag.name }}</a>
-    </h2>
-{% empty %}
-    <h4>No Tags available!!!</h4>
-{% endfor %}
+<div class="tags-container">
+    <div class="inner-div">
+        {% for tag in tags %}
+            <a href="{% url 'tags:tag_view' tag.name %}" class="tag-view-link" >
+                <p class="tag-name">{{ tag.name }}</p>
+            </a>
+        {% empty %}
+            <h4 class="no-tags">No Tags available!!!</h4>
+        {% endfor %}
+    </div>
+</div>
 
 {% endblock body %}

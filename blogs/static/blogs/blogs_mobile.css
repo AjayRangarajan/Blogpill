@@ -1,6 +1,5 @@
-.blog-view-title{
-    background-color: antiquewhite;
-    padding: 5px;
+#header h1{
+    margin-top: 35px;
 }
 
 /* only for blog-view */
@@ -15,4 +14,24 @@
 img.blog-img{
     width: 100%;
     height: auto;
+}
+
+/* style for blog editor */
+
+.input-labels{
+    display: inline-block;
+    width: 200px;
+}
+
+form#blog-creation-form div.form-elements>p>*{
+    width: 95%;
+}
+
+#editor-hint-content{
+    display: inline-block;
+    width: 40vw;
+}
+
+#blog-editor-hint-tags{
+    display: none;
 }

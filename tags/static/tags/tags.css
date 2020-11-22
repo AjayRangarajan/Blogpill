@@ -1,18 +1,29 @@
-h2.tag-name,.list-tag-name{
-    background-color: black;
+/* style for tag names in tags.html */
+
+.tags-container{
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+}
+
+.tag-name{
     width: 150px;
+    background-color: black;
+    color: #66fcf1;
     padding: 5px;
     border-radius: 5px;
     text-align: center;
 }
 
-h2.tag-name{
-    display: inline-block;
-    margin: 7px;
+.tag-description{
+    font-size: medium;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-h2.tag-name,h2.tag-name>a,h2.list-tag-name>a{
+span.no-of-blogs{
+    font-size: small;
+    background-color: black;
     color: #66fcf1;
-    font-size: 17px;
+    padding: 3px 5px;
+    border-radius: 5px;
 }
-

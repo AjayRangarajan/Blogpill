@@ -1,8 +1,3 @@
-.blog-view-title{
-    background-color: antiquewhite;
-    padding: 5px;
-}
-
 .blog-image{
     float: left;
     overflow: inherit;
@@ -16,6 +11,35 @@ img.blog-img{
 
 /* style for blog editor form */
 
-/* form#blog-creation-form{
-    
+form#blog-creation-form{
+    text-align: center;
+    min-height: 80vh;
+}
+
+/* div.form-elements{
+    text-align: center;
 } */
+
+form#blog-creation-form div.form-elements>p :not(.input-labels){
+    width: 60vw;
+}
+
+form#blog-creation-form .input-labels{
+    display: inline-block;
+    width: 100px;
+}
+
+/* blog title input */
+
+form#blog-creation-form input[id="blog-title"]{
+    width: 80vw;
+    height: 20px;
+}
+
+/* blog content input */
+
+form#blog-creation-form textarea[id="blog-content"]{
+    width: 80vw;
+    height: 300px;
+    font-family: Arial, Helvetica, sans-serif;
+}

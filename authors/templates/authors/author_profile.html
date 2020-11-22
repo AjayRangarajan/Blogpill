@@ -9,18 +9,21 @@
         <img src="{{ author.profile_pic.url }}" alt="{{ author.alt_msg }}" class="author-profile-img">
     {% endif %}
     <br>
-    <h2 class="author-name">{{ author.default.username }}</h2>
-    <h3 class="author-email">{{ author.default.email }}</h3>
-    <small>Number of Blogs:{{ no_of_blogs }}</small>
+    <h2 class="author-details author-name">{{ author.default.username }}</h2>
+    <h3 class="author-details author-email">{{ author.default.email }}</h3>
+    <small class="author-details no-of-blogs">Number of Blogs:{{ no_of_blogs }}</small>
 </div>
-<h3>Blogs</h3>
+<h2>Blogs</h2>
 {% for blog in blogs %}
-<a href="{% url 'blogs:blog_view' blog.id %}">
-    <article class="blogs-title">
-        <h2>{{ blog.title }}</h2>
-        <small>{{ blog.published_date }}</small>
+    <article class="blogs-title-article">
+        <a href="{% url 'blogs:blog_view' blog.id %}">
+            <h2 class="blog-title">{{ blog.title }}</h2>
+        </a>
+        <small>
+            -on {{ blog.published_date.date }}
+        </small>
     </article>
-</a>
+
 {% empty %}
 <h2>No Blogs avilable!</h2>
 {% endfor %}

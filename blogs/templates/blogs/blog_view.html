@@ -2,7 +2,7 @@
 
 {% block body %}
     <div class="blog-view-title">
-        <h2>{{ blog.title }}</h2>
+        <h1>{{ blog.title }}</h1>
         <h4>by - <a href="{% url 'authors:author_profile' blog.author.id %}">{{ blog.author }}</a> on {{ blog.published_date.date }}</h4>
     </div>
     <div class="blog-image">

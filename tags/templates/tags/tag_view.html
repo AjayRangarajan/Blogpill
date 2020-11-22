@@ -2,17 +2,17 @@
 
 {% block body %}
 
-<h2 class="tag-name">{{tag.name}}</h2>
+<p class="tag-name">{{tag.name}}</p>
 <p class="tag-description">{{ tag.description }}</p>
-<span>No of blogs:{{ no_of_blogs }}</span>
+<span class="no-of-blogs">No of blogs:{{ no_of_blogs }}</span>
 <br>
 <h2>Blogs</h2>
 {% for blog in blogs %}
-    <h3>
-        <a href="{% url 'blogs:blog_view' blog.id %}">{{blog.title}}</a>
-    </h3>
+    <a href="{% url 'blogs:blog_view' blog.id %}">
+        <h2 class="blog-title">{{blog.title}}</h2>
+    </a>
     <span>
-        by <a href="{% url 'authors:author_profile' blog.id %}">{{blog.author.name}}</a> on {{ blog.published_date.date }}
+        by <a href="{% url 'authors:author_profile' blog.id %}">{{blog.author.default.username}}</a> on {{ blog.published_date.date }}
     </span>
     <br>
 {% empty %}

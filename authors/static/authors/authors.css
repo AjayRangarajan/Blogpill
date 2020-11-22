@@ -1,0 +1,76 @@
+/* author section card */
+section.author{
+    text-align: center;
+    background-color: black;
+    color: #66fcf1;
+    /* border-style: solid; */
+    /* border-color: #66fcf1; */
+    padding-top: 5px;
+    padding-bottom: 10px;
+    border-radius: 15px;
+    margin: 5px;
+}
+
+/* author image inside the card */
+img.author-pic{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    width: 10em;
+    /* border: solid #66fcf1; */
+}
+
+/* author details inside the SECTION and in the PROFILE */
+.author-details{
+    text-align: center;
+    font-weight: normal;
+    font-size: medium;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* view profile button */
+.view-profile{
+    border-style: ridge;
+    border-color: #66fcf1;
+    border-radius: 15px;
+    background-color: black;
+    color: #66fcf1;
+    padding: 5px;
+}
+/* ======================= css for author profile ============================= */
+
+
+
+.author-profile{
+    text-align: center;
+    width: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: auto;
+}
+
+    /* Style for author details */
+
+.author-name{
+    font-size: x-large;
+}
+
+small.no-of-blogs{
+    background-color: black;
+    color: #66fcf1;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+/* image inside the author profile page */
+.author-profile-img{
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin: 5px auto -5px;
+    border-radius: 50%;
+    /* border-style: solid;
+    border-color: #66fcf1; */
+}

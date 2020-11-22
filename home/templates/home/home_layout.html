@@ -8,6 +8,10 @@
     <link rel="shortcut icon" href="https://www.flaticon.com/svg/static/icons/svg/888/888737.svg" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'home/main.css' %}">
     <link rel="stylesheet" href="{% static 'home/home.css' %}">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="{% static 'home/home_mobile.css' %}">
+    <link rel="stylesheet" media="only screen and (min-device-width: 481px)" href="{% static 'home/home_tablet.css' %}">
+    <link rel="stylesheet" media="only screen and (min-device-width: 1025px)" href="{% static 'home/home_desktop.css' %}">
+    <script src="{% static 'home/home.js' %}"></script>
 </head>
 <body>
     <header id="header">

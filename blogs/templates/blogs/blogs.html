@@ -9,14 +9,15 @@
 {% endblock head %}
 
 {% block body %}
+<h2 id="new-blogs-heading">New Blogs</h2>
 <div class="blog-titles">
     {% for blog in blogs reversed %}
-        <article class="blog-title">
+        <article class="blog-title-article">
             <a href="{% url 'blogs:blog_view' blog.id %}">
-                <h3 class="blog-title">{{ blog.title }}</h3>
+                <h2 class="blog-title">{{ blog.title }}</h2>
             </a>
             <span class="author-name">
-                -by <a href="{% url 'authors:author_profile' blog.author.id %}">{{ blog.author.name }}</a> on {{ blog.published_date.date }}
+                -by <a href="{% url 'authors:author_profile' blog.author.id %}">{{ blog.author.default.username }}</a> on {{ blog.published_date.date }}
             </span>
         </article>
     {% empty %}
