@@ -123,6 +123,12 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 
 #database for production configured using dj-database-url
 
+DATABASES = {
+    'default': {
+        
+    }
+}
+
 DATABASE_URL = os.environ['HEROKU_POSTGRESQL_AMBER_URL']
 
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
