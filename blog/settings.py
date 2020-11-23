@@ -37,7 +37,7 @@ DEBUG = (os.environ.get('BLOG_DEBUG_VALUE')=="True")
 # DEBUG= True
 # DEBUG = False
 
-# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 #only for production
 ALLOWED_HOSTS.append(os.environ.get('HOST_NAME'))
@@ -163,9 +163,9 @@ STATIC_ROOT=os.path.join(BASE_DIR,'static')
 
 #not necessary during production
 
-# STATICFILES_DIRS=[
-#     os.path.join(BASE_DIR,"static")
-# ]
+STATICFILES_DIRS=[
+    os.path.join(BASE_DIR,"static")
+]
 
 #used to create the STATIC_ROOT folder if it is not created during collectstatic command
 # os.makedirs(STATIC_ROOT, exist_ok=True)
