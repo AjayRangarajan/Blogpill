@@ -13,9 +13,13 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 import os
 from pathlib import Path
 
+import psycopg2
+import dj_database_url
+
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -105,17 +109,26 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 #     }
 # }
 
-#database for production
-DATABASES = {
-    'default': {
-        'ENGINE': os.environ.get('BLOG_DATABASE_ENGINE'),
-        'NAME': os.environ.get('BLOG_DATABASE_NAME'),
-        'HOST': os.environ.get('BLOG_DATABASE_HOST'),
-        'PORT': os.environ.get('BLOG_DATABASE_PORT'),
-        'USER': os.environ.get('BLOG_DATABASE_USER'),
-        'PASSWORD': os.environ.get('BLOG_DATABASE_PASSWORD'),
-    }
-}
+#database for production manual configuration
+# DATABASES = {
+#     'default': {
+#         'ENGINE': os.environ.get('BLOG_DATABASE_ENGINE'),
+#         'NAME': os.environ.get('BLOG_DATABASE_NAME'),
+#         'HOST': os.environ.get('BLOG_DATABASE_HOST'),
+#         'PORT': os.environ.get('BLOG_DATABASE_PORT'),
+#         'USER': os.environ.get('BLOG_DATABASE_USER'),
+#         'PASSWORD': os.environ.get('BLOG_DATABASE_PASSWORD'),
+#     }
+# }
+
+#database for production configured using dj-database-url
+
+DATABASE_URL = os.environ['DATABASE_URL']
+
+conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+
 
 
 # Password validation
