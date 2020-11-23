@@ -13,8 +13,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 import os
 from pathlib import Path
 
-import psycopg2
-import dj_database_url
+# import psycopg2
+# import dj_database_url
 
 import cloudinary
 import cloudinary.uploader
@@ -110,30 +110,30 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 # }
 
 #database for production manual configuration
-# DATABASES = {
-#     'default': {
-#         'ENGINE': os.environ.get('BLOG_DATABASE_ENGINE'),
-#         'NAME': os.environ.get('BLOG_DATABASE_NAME'),
-#         'HOST': os.environ.get('BLOG_DATABASE_HOST'),
-#         'PORT': os.environ.get('BLOG_DATABASE_PORT'),
-#         'USER': os.environ.get('BLOG_DATABASE_USER'),
-#         'PASSWORD': os.environ.get('BLOG_DATABASE_PASSWORD'),
-#     }
-# }
-
-#database for production configured using dj-database-url
-
 DATABASES = {
     'default': {
         'ENGINE': os.environ.get('BLOG_DATABASE_ENGINE'),
+        'NAME': os.environ.get('BLOG_DATABASE_NAME'),
+        'HOST': os.environ.get('BLOG_DATABASE_HOST'),
+        'PORT': os.environ.get('BLOG_DATABASE_PORT'),
+        'USER': os.environ.get('BLOG_DATABASE_USER'),
+        'PASSWORD': os.environ.get('BLOG_DATABASE_PASSWORD'),
     }
 }
 
-DATABASE_URL = os.environ['HEROKU_POSTGRESQL_AMBER_URL']
+#database for production configured using dj-database-url [ NOT WORKING :( ]
 
-conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+# DATABASES = {
+#     'default': {
+#         'ENGINE': os.environ.get('BLOG_DATABASE_ENGINE'),
+#     }
+# }
 
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+# DATABASE_URL = os.environ['HEROKU_POSTGRESQL_AMBER_URL']
+
+# conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+
+# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 
 # Password validation
