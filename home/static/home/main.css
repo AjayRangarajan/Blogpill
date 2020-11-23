@@ -82,6 +82,7 @@ nav.nav-links>a>button{
     height: auto;
     border-radius: 7px;
     padding: 5px 10px;
+    font-size: smaller;
 }
 
 .message-success{
@@ -91,7 +92,7 @@ nav.nav-links>a>button{
 
 .message-info{
     background-color: black;
-    color: #66fcf1;
+    color: yellow;
 }
 
 .message-error{
@@ -105,7 +106,7 @@ nav.nav-links>a>button{
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-header a:link{
+header a:link,a.no-decoration:link{
     text-decoration: none;
 }
 

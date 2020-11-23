@@ -11,6 +11,18 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+.update-blog{
+    margin-top: 5px;
+}
+
+.delete-blog{
+    margin-top: 5px;
+    background-color: black;
+    color: red;
+    padding: 10px;
+    border-radius: 7px;
+}
+
 .blog-view-title{
     background-color: antiquewhite;
     padding: 5px;
@@ -42,22 +54,22 @@ p.no-tags{
     font-size: 17px;
 }
 
-/* style for blog editor */
+/* style for blog editor and update form */
 
     /* style for blog elements */
 
-form#blog-creation-form{
+form.edit-blog-form{
     text-align: center;
 }
 
-form#blog-creation-form div.form-elements>p>*{
+form.edit-blog-form div.form-elements>p>*{
     background-color: black;
     color: #66fcf1;
     border-radius: 5px;
     padding: 5px;
 }
 
-form#blog-creation-form .input-labels{
+form.edit-blog-form .input-labels{
     font-size: small;
     background-color: black;
     color: #66fcf1;
@@ -65,31 +77,31 @@ form#blog-creation-form .input-labels{
 
 /* blog title input */
 
-form#blog-creation-form input[id="blog-title"]{
+form.edit-blog-form input[id="blog-title"]{
     height: 20px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: yellow;
 }
 
-form#blog-creation-form input[id="blog-title"]::placeholder{
+form.edit-blog-form input[id="blog-title"]::placeholder{
     font-family: Arial, Helvetica, sans-serif;
 }
 
 /* blog content input */
 
-form#blog-creation-form textarea[id="blog-content"]{
+form.edit-blog-form textarea[id="blog-content"]{
     height: 300px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 /* blog add image */
 
-form#blog-creation-form input[type='file']{
+form.edit-blog-form input[type='file']{
     background-color: black;
     color: #66fcf1;
 }
 
-#or{
+.or{
     border-radius: 50%;
     font-size: small;
     padding: 5px;
@@ -101,14 +113,17 @@ form#blog-creation-form input[type='file']{
     padding: 5px;
 }
 
-.blog-editor-hints,#or{
+.blog-editor-hints,.or{
     background-color:black;
     color: yellow;
 }
 
-#publish-blog-button{
+#publish-blog-button,#update-blog-button,.update-blog{
     background-color: black;
     color: #66fcf1;
     padding: 10px;
     border-radius: 7px;
 }
+
+/* blog update form */
+

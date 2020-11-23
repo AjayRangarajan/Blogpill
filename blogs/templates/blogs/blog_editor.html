@@ -1,7 +1,7 @@
 {% extends "blogs/blogs_layout.html" %}
 
 {% block body %}
-<form action="{% url 'blogs:create_blog' %}" method="POST" id="blog-creation-form" enctype="multipart/form-data" spellcheck="false" autocomplete="off">
+<form action="{% url 'blogs:create_blog' %}" method="POST" class="blog-creation-form edit-blog-form" enctype="multipart/form-data" spellcheck="false" autocomplete="off">
     {% csrf_token %}
     <div class="form-elements">
         <p class="blog-title-input">
@@ -21,7 +21,7 @@
             <span class="input-labels choose-image-label">{{ blog_creation_form.image.label }}:</span>
             {{ blog_creation_form.image }}
         </p>
-        <span id="or">Or</span>
+        <span class="or">Or</span>
         <p class="add-image-link">
             <span class="input-labels add-image-link-label">{{ blog_creation_form.image_link.label }}:</span>
             {{ blog_creation_form.image_link }}
@@ -44,6 +44,7 @@
             <p class="messages message-{{ message.tags }}">{{ message }}</p>
         {% endfor %}
     {% endif %}
+    <br>
     <button type="submit" id="publish-blog-button">Create Blog</button>
 </form>
 {% endblock body %}

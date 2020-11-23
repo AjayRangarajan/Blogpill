@@ -20,6 +20,14 @@
                 -by <a href="{% url 'authors:author_profile' blog.author.id %}">{{ blog.author.default.username }}</a> on {{ blog.published_date.date }}
             </span>
         </article>
+        {% if request.user.username == blog.author.default.username %}
+            <a href="{% url 'blogs:update_blog' blog.id %}" class="no-decoration">
+                <button class="update-blog">Update</button>
+            </a>
+            <a href="{% url 'blogs:delete_blog' blog.id %}">
+                <button class="delete-blog" onclick="return confirm('Are you sure wants to delete the blog?')">Delete</button>
+            </a>
+        {% endif %}
     {% empty %}
         <h3 class="no-blogs">No blogs available!!!</h3>
     {% endfor %}

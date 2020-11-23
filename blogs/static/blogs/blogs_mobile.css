@@ -23,13 +23,13 @@ img.blog-img{
     width: 200px;
 }
 
-form#blog-creation-form div.form-elements>p>*{
+form.edit-blog-form div.form-elements>p>*{
     width: 95%;
 }
 
 #editor-hint-content{
     display: inline-block;
-    width: 40vw;
+    width: 80vw;
 }
 
 #blog-editor-hint-tags{

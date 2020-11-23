@@ -18,18 +18,20 @@
         <h1>Blogpill</h1>
         {% if request.user.is_authenticated %}
             <a href="{% url 'home:logout_page' %}" class="logout-link">
-                <button class="logout-button">Logout</button>
+                <button class="logout-button" onclick="return confirm('Are you sure wants to logout?')">Logout</button>
             </a>
         {% else %}
             <a href="{% url 'home:login_page' %}" class="login-link">
                 <button class="login-button">Login</button>
             </a>
         {% endif %}
-        {% if is_author %}
-            <a href="{% url 'blogs:create_blog' %}" id="create-blog-page">
-                <button class="create-blog-button">Create Blog</button>
-            </a>
-        {% endif %}
+        {% for group in request.user.groups.all %}
+            {% if group.name == 'Authors' %}
+                <a href="{% url 'blogs:create_blog' %}" id="create-blog-page">
+                    <button class="create-blog-button">Create Blog</button>
+                </a>
+            {% endif %}
+        {% endfor %}
         <nav class="nav-links" >
             <a href="#">
                 <button id="home-page" class="current-page" >Home</button>

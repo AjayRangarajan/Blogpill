@@ -8,16 +8,19 @@ a#create-blog-page button.create-blog-button{
     width: auto;
     padding: 5px;
     margin: auto;
+    font-size: smaller;
 }
 
 #header a.login-link button.login-button{
     width: auto;
     padding: 5px;
     margin: auto;
+    font-size: smaller;
 }
 
 #header a.logout-link button.logout-button{
     width: auto;
     padding: 5px;
     margin: auto;
+    font-size: smaller;
 }
