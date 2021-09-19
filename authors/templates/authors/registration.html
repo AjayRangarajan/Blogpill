@@ -1,0 +1,36 @@
+{% extends 'authors/authors_layout.html' %}
+{% load crispy_forms_tags %}
+
+{% block head %}
+<section class="bg-dark text-light p-3 text-center">
+  <div class="container">
+    <h2>Registration Form</h2>
+  </div>
+</section>
+{% endblock head %}
+
+{% block body %}
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}" role="alert" style="margin: 5px;">
+      {{ message }}
+    </div>
+  {% endfor %}
+{% endif %}
+
+<form action="{% url 'authors:register' %}" method="POST" style="margin: 10px">
+  {% csrf_token %} 
+  <fieldset class="form-group" style="margin: 10px">
+    {{ form|crispy }}
+  </fieldset>
+  <div class="form-group text-center">
+    <button class="btn btn-outline-info" type="submit">Register</button>
+    <small class="text-muted">already have an account? <a href="{% url 'authors:login' %}">Login</a></small>
+  </div>
+</form>
+<br>
+{% endblock body %}
+
+{% block foot %}
+{% endblock foot %}

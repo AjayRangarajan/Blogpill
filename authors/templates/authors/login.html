@@ -1,0 +1,42 @@
+{% extends "authors/authors_layout.html" %}
+
+{% block head %}
+<section class="bg-dark text-light p-3 text-center">
+  <div class="container">
+    <h2 style="margin: 5px;">Login Form</h2>
+  </div>
+</section>
+{% endblock head %}
+
+{% block body %}
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}" role="alert" style="margin: 5px;">
+      {{ message }}
+    </div>
+  {% endfor %}
+{% endif %}
+<br>
+<br>
+<form action="{% url 'authors:login' %}" method="POST" spellcheck="false" style="text-align: center;margin: 10px 10px;">
+  {% csrf_token %}
+  <div class="mb-3">
+    <input type="text" class="form-control" id="login-name" name="username" placeholder="username">
+  </div>
+  <div class="mb-3">
+    <input type="password" class="form-control" id="login-password" name="password" placeholder="password">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+  <small class="text-muted">New User? <a href="{% url 'authors:register' %}">Register</a></small>
+</form>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock body %}

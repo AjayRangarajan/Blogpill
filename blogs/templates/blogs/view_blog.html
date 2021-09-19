@@ -1,0 +1,19 @@
+{% extends 'blogs/blogs_layout.html' %}
+
+{% block body %}
+<div class="container">
+    <h1 style="margin-top: 30px;">{{ blog.title }}</h1>
+    <span>by <a href="{% url 'authors:view_profile' blog.author.id %}">{{ blog.author.username }}</a> on {{ blog.published_date | date:"F j, o" }}</span>
+    <br>
+    <img src="{{ blog.image.url }}" class="img-fluid" alt="Image related to this blog" style="display: block;margin-bottom: 10px;margin-top: 10px;" >
+    <p>{{ blog.content | safe }}</p>
+    <br>
+    {% if request.user == blog.author %}
+        <div class="form-group text-center">
+            <a href="{% url 'blogs:update_blog' blog.id %}" class="btn btn-outline-info">Update</a>
+            <a href="{% url 'blogs:delete_blog' blog.id %}" onclick="return confirm('Are you sure want to delete this blog?')" class="btn btn-outline-danger">Delete</a>
+        </div>
+        <br>
+    {% endif %}
+</div>
+{% endblock body %}
