@@ -42,9 +42,12 @@ DEBUG = (os.environ.get('BLOG_DEBUG_VALUE')=="True")
 # DEBUG= True
 # DEBUG = False
 
-ALLOWED_HOSTS = []
+# Only for development
+# ALLOWED_HOSTS = ['*']
+
 
 #only for production
+ALLOWED_HOSTS = []
 ALLOWED_HOSTS.append(os.environ.get('HOST_NAME'))
 
 
@@ -111,6 +114,7 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
+
 
 #database for production manual configuration
 DATABASES = {

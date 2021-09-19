@@ -6,8 +6,8 @@ from cloudinary.models import CloudinaryField
 class Blogs(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
-    # image=CloudinaryField('image')
-    image = models.ImageField(upload_to='blog_images', blank=True, null=True)
+    image=CloudinaryField('image')
+    # image = models.ImageField(upload_to='blog_images', blank=True, null=True)
     published_date = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User,related_name='blog', on_delete=models.CASCADE, blank=True, null=True)
 
