@@ -1,31 +1,104 @@
-{% extends "authors/authors_layout.html" %}
+{% extends 'authors/authors_layout.html' %}
+
+
+{% block head %}
+<section class="bg-dark text-light p-3 text-center">
+  <div class="container">
+    <h2 style="margin: 5px;">{{author.username}}'s Profile</h2>
+  </div>
+</section>
+{% endblock head %}
+
 
 {% block body %}
-<div class="author-profile">
-
-    {% if author.author_image_link %}
-        <img src="{{ author.profile_image_link }}" alt="{{ author.alt_msg }}" class="author-profile-img">
-    {% else %}
-        <img src="{{ author.profile_pic.url }}" alt="{{ author.alt_msg }}" class="author-profile-img">
-    {% endif %}
-    <br>
-    <h2 class="author-details author-name">{{ author.default.username }}</h2>
-    <h3 class="author-details author-email">{{ author.default.email }}</h3>
-    <small class="author-details no-of-blogs">Number of Blogs:{{ no_of_blogs }}</small>
+<br>
+<br>
+<div class="container">
+    <div class="main-body">
+          <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                    <img src="{{ author.profile.profile_pic.url }}" alt="Admin" class="rounded-circle" width="150">
+                    <div class="mt-3">
+                      <h4>{{ author.username }}</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Full Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{ author.first_name }} {{ author.last_name }}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Email</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{ author.email }}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">No of Blogs</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{ author.blog.all.count }}
+                    </div>
+                  </div>
+                  <hr>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+<br>
+<h2 style="margin-left: 50px;" >Blogs</h2>
+<br>
+  <div class="container-fluid">
+    <div class="d-sm-flex p-3" style="flex-wrap: wrap;justify-content: left;">
+        {% for blog in author.blog.all %}
+            <div class="card m-2" style="width: 18rem">
+                <img
+                src="{{ blog.image.url }}"
+                class="card-img-top"
+                alt="Blog Image"
+                />
+                <div class="card-body">
+                    <h5 class="card-title pb-2">
+                        {{ blog.title }}
+                    </h5>
+                    <h6 class="card-subtitle mb-3 text-muted">
+                        by <a href="#" class="card-link">{{ blog.author.username }}</a>
+                    </h6>
+                    <a href="{% url 'blogs:view_blog' blog.pk %}" class="btn btn-primary">View more</a>
+                </div>
+            </div>
+        {% empty %}
+          <div class="container">
+            <h4 style="margin: 3px;">No Blogs Yet!</h4>
+          </div>
+        {% endfor %}
+    </div>
 </div>
-<h2>Blogs</h2>
-{% for blog in blogs %}
-    <article class="blogs-title-article">
-        <a href="{% url 'blogs:blog_view' blog.id %}">
-            <h2 class="blog-title">{{ blog.title }}</h2>
-        </a>
-        <small>
-            -on {{ blog.published_date.date }}
-        </small>
-    </article>
-
-{% empty %}
-<h2>No Blogs avilable!</h2>
-{% endfor %}
-
+<br>
+{% if request.user == author %}
+  <div class="form-group text-center">
+      <a href="{% url 'authors:update_profile' author.id %}" class="btn btn-outline-info">Update Profile</a>
+      <a href="{% url 'authors:delete_profile' author.id %}" onclick="return confirm('Are you sure want to delete this profile?')" class="btn btn-outline-danger">Delete Profile</a>
+  </div>
+  <br>
+{% endif %}
 {% endblock %}

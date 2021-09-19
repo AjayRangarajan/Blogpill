@@ -1,50 +1,33 @@
-{% extends "blogs/blogs_layout.html" %}
+{% extends 'blogs/blogs_layout.html' %}
+{% load crispy_forms_tags    %}
+
+{% block head %}
+<section class="bg-dark text-light p-3 text-center">
+    <div class="container">
+      <h2>Create Blog</h2>
+    </div>
+</section>
+{% endblock head %}
 
 {% block body %}
-<form action="{% url 'blogs:create_blog' %}" method="POST" class="blog-creation-form edit-blog-form" enctype="multipart/form-data" spellcheck="false" autocomplete="off">
-    {% csrf_token %}
-    <div class="form-elements">
-        <p class="blog-title-input">
-            <span class="input-labels blog-title-label">{{ blog_creation_form.title.label }}:</span>
-            {{ blog_creation_form.title }}
-        </p>
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}" role="alert" style="margin: 5px;">
+      {{ message }}
     </div>
-    <div class="form-elements">
-        <p class="blog-content-input">
-            <span class="input-labels blog-content-label">{{ blog_creation_form.content.label }}:</span>
-            {{ blog_creation_form.content }}
-        </p>
-        <span class="blog-editor-hints" id="editor-hint-content">Add HTML tags for markups</span>
+  {% endfor %}
+{% endif %}
+
+<form action="{% url 'blogs:create_blog' %}" method="POST" style="margin: 10px" enctype="multipart/form-data" >
+    {% csrf_token %} 
+    <fieldset class="form-group" style="margin: 10px">
+      {{ form|crispy }}
+    </fieldset>
+    <div class="form-group text-center">
+      <button class="btn btn-outline-info" type="submit">Create</button>
     </div>
-    <div class="form-elements">
-        <p class="choose-image-button">
-            <span class="input-labels choose-image-label">{{ blog_creation_form.image.label }}:</span>
-            {{ blog_creation_form.image }}
-        </p>
-        <span class="or">Or</span>
-        <p class="add-image-link">
-            <span class="input-labels add-image-link-label">{{ blog_creation_form.image_link.label }}:</span>
-            {{ blog_creation_form.image_link }}
-        </p>
-        <p class="alt-msg">
-            <span class="input-labels alt-msg-label">{{ blog_creation_form.alt_msg.label }}:</span>
-            {{ blog_creation_form.alt_msg }}
-        </p>
-    </div>
-    <div class="form-elements form-tags">
-        <p class="add-tags">
-            <span class="input-labels add-tags-label">{{ blog_creation_form.tags.label }}:</span>
-            {{ blog_creation_form.tags }}
-        </p>
-        <span class="blog-editor-hints" id="blog-editor-hint-tags">Ctrl+click to select multiple tags</span>
-    </div>
-    <br>
-    {% if messages %}
-        {% for message in messages %}
-            <p class="messages message-{{ message.tags }}">{{ message }}</p>
-        {% endfor %}
-    {% endif %}
-    <br>
-    <button type="submit" id="publish-blog-button">Create Blog</button>
 </form>
+<br>
+
 {% endblock body %}

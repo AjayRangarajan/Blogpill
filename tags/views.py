@@ -9,16 +9,16 @@ def tags(request):
     }
     return render(request,"tags/tags.html",context)
 
-def tag_view(request,tag_name):
+# def tag_view(request,tag_name):
 
-    tag=Tags.objects.get(name=tag_name)
-    blogs=tag.blogs.all()
-    no_of_blogs=len(blogs)
+#     tag=Tags.objects.get(name=tag_name)
+#     blogs=tag.blogs.all()
+#     no_of_blogs=len(blogs)
 
-    context={
-        'title': tag.name,
-        'blogs': blogs,
-        'tag':tag,
-        'no_of_blogs':no_of_blogs,
-    }
-    return render(request,"tags/tag_view.html",context)
+#     context={
+#         'title': tag.name,
+#         'blogs': blogs,
+#         'tag':tag,
+#         'no_of_blogs':no_of_blogs,
+#     }
+#     return render(request,"tags/tag_view.html",context)

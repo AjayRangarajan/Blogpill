@@ -1,45 +1,87 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="https://www.flaticon.com/svg/static/icons/svg/888/888737.svg" type="image/x-icon">
-    <title>{{ title }}</title>
-    <link rel="stylesheet" href="{% static 'home/main.css' %}">
-    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="{% static 'authors/authors_mobile.css' %}">
-    <link rel="stylesheet" media="only screen and (min-device-width: 481px)" href="{% static 'authors/authors_tablet.css' %}">
-    <link rel="stylesheet" media="only screen and (min-device-width: 1025px)" href="{% static 'authors/authors_desktop.css' %}">
-    <link rel="stylesheet"  href="{% static 'authors/authors.css' %}">
-</head>
-<body>
-    <header id="header">
-        <h1>Blogpill</h1>
-        <nav class="nav-links" >
-            <a href="{% url 'home:home' %}">
-                <button id="home-page">Home</button>
-            </a>
-            <a href="{% url 'blogs:blogs' %}">
-                <button id="blogs-page" >Blogs</button>
-            </a>
-            <a href="{% url 'tags:tags' %}">
-                <button id="tags-page">Tags</button>
-            </a>
-            <a href="#">
-                <button id="authors-page" class="current-page">Authors</button>
-            </a>
-        </nav>
-    </header>
-    {% block head %}
-    {% endblock head %}
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {% block body %}
-    {% endblock body %}
+        <link rel="shortcut icon" href="https://image.shutterstock.com/image-vector/blogging-icon-vector-260nw-754633009.jpg" type="image/x-icon">
+        <link rel="stylesheet" href="{% static 'home/css/main.css' %}">
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    {% block foot %}
-    {% endblock foot %}
-    <footer id="authors-footer">
-        <span class="copyrights">Copyright &copy; <script>document.write(new Date().getFullYear())</script> Blogpill All Rights Reserved</span>
-    </footer>
-</body>
+        <title>
+            {% if blog %}
+                {{ blog.title }}
+            {% else %}
+                {{ title }}
+            {% endif %}
+        </title>
+    </head>
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <div class="container">
+              <a href="#" class="navbar-brand">Blog app</a>
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navmenu"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                    <a href="{% url 'home:home' %}" class="nav-link">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'blogs:blogs' %}" class="nav-link">Blogs</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'authors:authors' %}" class="nav-link">Authors</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'home:about' %}" class="nav-link">About</a>
+                  </li>
+                  {% if request.user.is_authenticated %}
+                    <li class="nav-item">
+                      <a href="{% url 'blogs:create_blog' %}" class="nav-link">Create blog</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{% url 'authors:view_profile' request.user.id %}" class="nav-link">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{% url 'authors:logout' %}" onclick="return confirm('Are you sure wants to Logout?')" class="nav-link">Logout</a>
+                    </li>
+                  {% else %}
+                    <li class="nav-item">
+                      <a href="{% url 'authors:register' %}" class="nav-link">Sign Up</a>
+                    </li>
+                  {% endif %}
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+        {% block head %}
+        {% endblock head %}
+
+        {% block body %}
+        {% endblock body %}
+
+        {% block foot %}
+        {% endblock foot %}
+
+        <footer class="bg-light text-center text-lg-start">
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: black; color: white">
+              &copy; 2021 Copyright: Blog app
+            </div>
+            <!-- Copyright -->
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
 </html>

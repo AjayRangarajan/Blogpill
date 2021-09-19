@@ -1,28 +1,76 @@
-{% extends "home/home_layout.html" %}
+{% extends 'home/home_layout.html' %}
 
 {% block head %}
-    {% if messages %}
-        {% for message in messages %}
-            <p class="messages message-{{ message.tags }}" >{{ message }}</p>
-        {% endfor %}
-    {% endif %}
+<!-- Title section -->
+<section class="bg-dark text-light p-3 text-center">
+  <div class="container">
+    <h2>Welcome to the Blogpill!</h2>
+    <h5>A place to explore blogs</h5>
+  </div>
+</section>
 {% endblock head %}
 
 {% block body %}
-<h2 id="featured-blogs-heading">Featured Blogs</h2>
-<div class="featured-blogs">
-    {% for blog in featured_blogs reversed %}
-            <article class="featured-blogs-article">
-                <a href="{% url 'blogs:blog_view' blog.id %}" class="featured-blog-link" >
-                    <h2 class="blog-title">{{ blog.title }}</h2>
-                </a>
-                <span class="author-name">
-                    -by <a href="{% url 'authors:author_profile' blog.author.id %}">{{ blog.author.default.username }}</a>
-                </span>
-                <span class="published-date" >on {{ blog.published_date.date }}</span>
-            </article>
-    {% empty %}
-        <h3 class="no-blogs">No blogs available!</h3>
-    {% endfor %}
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}" role="alert" style="margin: 5px;">
+      {{ message }}
+    </div>
+  {% endfor %}
+{% endif %}
+<br>
+<h3 style="margin-left: 50px;">Blogs</h3>
+
+<!-- blog cards -->
+<div class="container-fluid">
+  <div class="d-sm-flex p-3" style="flex-wrap: wrap;justify-content: left;">
+      {% for blog in blogs %}
+          <div class="card m-2" style="width: 18rem">
+              <img
+              src="{{ blog.image.url }}"
+              class="card-img-top"
+              alt="Blog Image"
+              />
+              <div class="card-body">
+                  <h5 class="card-title pb-2">
+                      {{ blog.title }}
+                  </h5>
+                  <h6 class="card-subtitle mb-3 text-muted">
+                      by <a href="{% url 'authors:view_profile' blog.author.id %}" class="card-link">{{ blog.author.username }}</a>
+                  </h6>
+                  <a href="{% url 'blogs:view_blog' blog.pk %}" class="btn btn-primary">View more</a>
+              </div>
+          </div>
+      {% endfor %}
+  </div>
 </div>
+
+<h3 style="margin-left: 50px;">Authors</h3>
+
+<div class="container-fluid">
+  <div class="d-sm-flex p-3" style="flex-wrap: wrap;justify-content: left;">
+      {% for author in authors %}
+        {% if author.blog.all.count >= 0 %}
+          <div class="card m-2" style="width: 18rem">
+              <img
+              src="{{ author.profile.profile_pic.url }}"
+              class="card-img-top"
+              alt="Blog Image"
+              />
+              <div class="card-body">
+                  <h5 class="card-title pb-2">
+                      {{ author.username }}
+                  </h5>
+                  <h6 class="card-subtitle mb-3 text-muted">
+                      <a href="#" class="card-link">{{ author.email }}</a>
+                  </h6>
+                  <a href="{% url 'authors:view_profile' author.id %}" class="btn btn-primary">View Profile</a>
+              </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+  </div>
+</div>
+
 {% endblock body %}

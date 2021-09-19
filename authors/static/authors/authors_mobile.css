@@ -1,9 +1,0 @@
-#header h1{
-    margin-top: 35px;
-}
-
-.authors-container{
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1px;
-}

@@ -1,9 +1,14 @@
-from django.urls import path
-from . import views as authors_views
+from django.urls import path 
+from . import views
 
-app_name="authors"
+app_name = 'authors'
 
-urlpatterns=[
-    path("",authors_views.authors,name="authors"),
-    path("<int:author_id>/",authors_views.author_profile,name="author_profile"),
+urlpatterns = [
+    path('', views.authors, name='authors'),
+    path('register/', views.register, name="register"),
+    path('login/', views.login_view, name="login"),
+    path('logout/', views.logout_view, name="logout"),
+    path('<int:user_id>/', views.view_profile, name='view_profile'),
+    path('update_profile/<int:user_id>/', views.update_profile, name='update_profile'),
+    path('delete_profile/<int:user_id>/', views.delete_profile, name='delete_profile'),
 ]

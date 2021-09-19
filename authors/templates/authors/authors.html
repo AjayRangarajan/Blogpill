@@ -1,24 +1,36 @@
-{% extends "authors/authors_layout.html" %}
+{% extends 'authors/authors_layout.html' %}
+
+{% block head %}
+<section class="bg-dark text-light p-3 text-center">
+    <div class="container">
+        <h2>Authors</h2>
+    </div>
+</section>
+{% endblock head %}
 
 {% block body %}
-<div class="authors-container">
-{% for author in authors %}
-    <section class="author">
-        {% if author.image_link %}
-            <img src="{{ author.image_link }}" alt="{{ author.alt_msg }}" class="author-pic">
-        {% else %}
-            <img src="{{ author.profile_pic.url }}" alt="{{ author.alt_msg }}" class="author-pic">
-        {% endif %}
-        <div class="author-details">
-            <h3 class="author-name" >{{ author.default.username }}</h3>
-            <h4 class="author-email" >{{ author.default.email }}</h4>
-        </div>
-        <a href="{% url 'authors:author_profile' author.id %}" class="view-profile-link">
-            <button class="view-profile">view profile</button>
-        </a>
-    </section>
-{% empty %}
-    <p class="no-authors">No Authors available!</p>
-{% endfor %}
+
+<div class="container-fluid">
+    <div class="d-sm-flex p-3" style="flex-wrap: wrap;justify-content: left;">
+        {% for author in authors %}
+            <div class="card m-2" style="width: 18rem">
+                <img
+                src="{{ author.profile.profile_pic.url }}"
+                class="card-img-top"
+                alt="Blog Image"
+                />
+                <div class="card-body">
+                    <h5 class="card-title pb-2">
+                        {{ author.username }}
+                    </h5>
+                    <h6 class="card-subtitle mb-3 text-muted">
+                        <a href="#" class="card-link">{{ author.email }}</a>
+                    </h6>
+                    <a href="{% url 'authors:view_profile' author.id %}" class="btn btn-primary">View Profile</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 </div>
+
 {% endblock body %}
