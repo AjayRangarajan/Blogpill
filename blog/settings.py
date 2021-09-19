@@ -15,7 +15,6 @@ from pathlib import Path
 from django.contrib.messages import constants as messages
 
 import psycopg2
-import dj_database_url
 
 import cloudinary
 import cloudinary.uploader
@@ -33,7 +32,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get("BLOG_SECRET_KEY")
 
 #only for development
-# SECRET_KEY = "fjdofjalfrewnonrwmrnww2012ten 2399 u24203u3jrkewrt8430"
+# SECRET_KEY = "fjdofjalfrewnonrwmrnww2012tendkj42399u24203u3jrkewrt8430"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = (os.environ.get('BLOG_DEBUG_VALUE')=="True")
@@ -127,20 +126,6 @@ DATABASES = {
         'PASSWORD': os.environ.get('BLOG_DATABASE_PASSWORD'),
     }
 }
-
-#database for production configured using dj-database-url [ NOT WORKING :( ]
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': os.environ.get('BLOG_DATABASE_ENGINE'),
-#     }
-# }
-
-# DATABASE_URL = os.environ['HEROKU_POSTGRESQL_AMBER_URL']
-
-# conn = psycopg2.connect(DATABASE_URL, sslmode='require')
-
-# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 
 # Password validation
